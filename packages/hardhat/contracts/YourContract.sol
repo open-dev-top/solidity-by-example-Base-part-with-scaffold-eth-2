@@ -14,8 +14,8 @@ import "hardhat/console.sol";
  */
 contract YourContract {
 	// my test state variables
-	string public text = "Hello";
-	uint256 public num = 123;
+	address public constant MY_ADDRESS = 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266;
+	uint256 public constant MY_UINT = 123;
 
 	// State Variables
 	address public immutable owner;
@@ -47,12 +47,7 @@ contract YourContract {
 	}
 
 	// my test function
-	function doSomething() public {
-		uint256 i = 456;
 
-		uint256 timestamp = block.timestamp;
-		address sender = msg.sender;
-	}	
 
 	/**
 	 * Function that allows anyone to change the state variable "greeting" of the contract and increase the counters
