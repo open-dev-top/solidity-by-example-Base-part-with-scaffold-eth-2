@@ -14,11 +14,11 @@ import "hardhat/console.sol";
  */
 contract YourContract {
 	// my test state variables
-	address public constant MY_ADDRESS = 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266;
-	uint256 public constant MY_UINT = 123;
+	address public immutable MY_ADDRESS;
+	uint256 public immutable MY_UINT;
 
 	// State Variables
-	address public immutable owner;
+	// address public immutable owner;
 	string public greeting = "Building Unstoppable Apps!!!";
 	bool public premium = false;
 	uint256 public totalCounter = 0;
@@ -32,19 +32,25 @@ contract YourContract {
 		uint256 value
 	);
 
+	// my test constructor
+	constructor(uint256 _myUint){
+		MY_ADDRESS = msg.sender;
+		MY_UINT = _myUint;
+	}
+
 	// Constructor: Called once on contract deployment
 	// Check packages/hardhat/deploy/00_deploy_your_contract.ts
-	constructor(address _owner) {
-		owner = _owner;
-	}
+	// constructor(address _owner) {
+	// 	owner = _owner;
+	// }
 
 	// Modifier: used to define a set of rules that must be met before or after a function is executed
 	// Check the withdraw() function
-	modifier isOwner() {
-		// msg.sender: predefined variable that represents address of the account that called the current function
-		require(msg.sender == owner, "Not the Owner");
-		_;
-	}
+	// modifier isOwner() {
+	// 	// msg.sender: predefined variable that represents address of the account that called the current function
+	// 	require(msg.sender == owner, "Not the Owner");
+	// 	_;
+	// }
 
 	// my test function
 
@@ -82,10 +88,10 @@ contract YourContract {
 	 * Function that allows the owner to withdraw all the Ether in the contract
 	 * The function can only be called by the owner of the contract as defined by the isOwner modifier
 	 */
-	function withdraw() public isOwner {
-		(bool success, ) = owner.call{ value: address(this).balance }("");
-		require(success, "Failed to send Ether");
-	}
+	// function withdraw() public isOwner {
+	// 	(bool success, ) = owner.call{ value: address(this).balance }("");
+	// 	require(success, "Failed to send Ether");
+	// }
 
 	/**
 	 * Function that allows the contract to receive ETH
