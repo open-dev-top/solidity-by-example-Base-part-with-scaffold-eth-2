@@ -14,7 +14,28 @@ import "hardhat/console.sol";
  */
 contract YourContract {
 	// my test state variables
-	uint256 public count;
+	bool public boo  = true;
+
+    uint8 public u8 = 1;
+    uint256 public u256 = 456;
+    uint256 public u = 123;
+
+	int8 public i8 = -1;
+    int256 public i256 = 456;
+    int256 public i = -123;
+
+	int256 public minInt = type(int256).min;
+    int256 public maxInt = type(int256).max;
+
+	address public addr = 0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c;
+
+	bytes1 public aa = 0xb5; //  [10110101]
+    bytes1 public bb = 0x56; //  [01010110]
+
+    bool public defaultBoo; // false
+    uint256 public defaultUint; // 0
+    int256 public defaultInt; // 0
+    address public defaultAddr; // 0x0000000000000000000000000000000000000000
 
 	// State Variables
 	address public immutable owner;
@@ -46,17 +67,7 @@ contract YourContract {
 	}
 
 	// my test function
-	function get() public view returns(uint256){
-		return count;
-	}
 
-	function inc() public {
-		count+=1;
-	}
-
-	function dec() public {
-		count-=1;
-	}
 
 	/**
 	 * Function that allows anyone to change the state variable "greeting" of the contract and increase the counters
