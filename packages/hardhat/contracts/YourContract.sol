@@ -13,6 +13,9 @@ import "hardhat/console.sol";
  * @author BuidlGuidl
  */
 contract YourContract {
+	// My test code
+	string public greet = "Hello World!";
+
 	// State Variables
 	address public immutable owner;
 	string public greeting = "Building Unstoppable Apps!!!";
