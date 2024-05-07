@@ -14,8 +14,7 @@ import "hardhat/console.sol";
  */
 contract YourContract {
 	// my test state variables
-	address public immutable MY_ADDRESS;
-	uint256 public immutable MY_UINT;
+	uint256 public num;
 
 	// State Variables
 	// address public immutable owner;
@@ -33,10 +32,9 @@ contract YourContract {
 	);
 
 	// my test constructor
-	constructor(uint256 _myUint){
-		MY_ADDRESS = msg.sender;
-		MY_UINT = _myUint;
-	}
+	// constructor(){
+
+	// }
 
 	// Constructor: Called once on contract deployment
 	// Check packages/hardhat/deploy/00_deploy_your_contract.ts
@@ -53,7 +51,13 @@ contract YourContract {
 	// }
 
 	// my test function
+	function set(uint256 _num) public {
+		num = _num;
+	}
 
+	function get() public view returns(uint256) {
+		return num;
+	}
 
 	/**
 	 * Function that allows anyone to change the state variable "greeting" of the contract and increase the counters

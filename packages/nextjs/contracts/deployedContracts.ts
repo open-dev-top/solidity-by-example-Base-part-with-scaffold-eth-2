@@ -7,19 +7,8 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     YourContract: {
-      address: "0x9A9f2CCfdE556A7E9Ff0848998Aa4a0CFD8863AE",
+      address: "0x68B1D87F95878fE05B998F19b66F4baba5De1aed",
       abi: [
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "_myUint",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "constructor",
-        },
         {
           anonymous: false,
           inputs: [
@@ -53,20 +42,7 @@ const deployedContracts = {
         },
         {
           inputs: [],
-          name: "MY_ADDRESS",
-          outputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "MY_UINT",
+          name: "get",
           outputs: [
             {
               internalType: "uint256",
@@ -92,6 +68,19 @@ const deployedContracts = {
         },
         {
           inputs: [],
+          name: "num",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
           name: "premium",
           outputs: [
             {
@@ -101,6 +90,19 @@ const deployedContracts = {
             },
           ],
           stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_num",
+              type: "uint256",
+            },
+          ],
+          name: "set",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
         {
