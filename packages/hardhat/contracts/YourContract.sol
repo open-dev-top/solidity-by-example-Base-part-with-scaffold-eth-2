@@ -13,8 +13,8 @@ import "hardhat/console.sol";
  * @author BuidlGuidl
  */
 contract YourContract {
-	// My test code
-	string public greet = "Hello World!";
+	// my test state variables
+	uint256 public count;
 
 	// State Variables
 	address public immutable owner;
@@ -43,6 +43,19 @@ contract YourContract {
 		// msg.sender: predefined variable that represents address of the account that called the current function
 		require(msg.sender == owner, "Not the Owner");
 		_;
+	}
+
+	// my test function
+	function get() public view returns(uint256){
+		return count;
+	}
+
+	function inc() public {
+		count+=1;
+	}
+
+	function dec() public {
+		count-=1;
 	}
 
 	/**
