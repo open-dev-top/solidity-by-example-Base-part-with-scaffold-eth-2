@@ -1,3 +1,7 @@
+# My notes
+
+## (Solidity by Example v 0.8.24)[https://solidity-by-example.org/]
+
 # 🏗 Scaffold-ETH 2
 
 <h4 align="center">
