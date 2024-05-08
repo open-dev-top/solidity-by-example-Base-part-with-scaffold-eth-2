@@ -7,23 +7,40 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     YourContract: {
-      address: "0x59b670e9fA9D0A427751Af201D676719a970857b",
+      address: "0x4A679253410272dd5232B3Ff7cF5dbB88f295319",
       abi: [
         {
-          inputs: [],
-          name: "cancel",
+          inputs: [
+            {
+              internalType: "string",
+              name: "_text",
+              type: "string",
+            },
+          ],
+          name: "create",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [],
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_index",
+              type: "uint256",
+            },
+          ],
           name: "get",
           outputs: [
             {
-              internalType: "enum YourContract.Status",
-              name: "",
-              type: "uint8",
+              internalType: "string",
+              name: "text",
+              type: "string",
+            },
+            {
+              internalType: "bool",
+              name: "completed",
+              type: "bool",
             },
           ],
           stateMutability: "view",
@@ -43,8 +60,38 @@ const deployedContracts = {
           type: "function",
         },
         {
-          inputs: [],
-          name: "reset",
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "todos",
+          outputs: [
+            {
+              internalType: "string",
+              name: "text",
+              type: "string",
+            },
+            {
+              internalType: "bool",
+              name: "completed",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_index",
+              type: "uint256",
+            },
+          ],
+          name: "toggleCompleted",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
@@ -52,27 +99,19 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "enum YourContract.Status",
-              name: "_status",
-              type: "uint8",
+              internalType: "uint256",
+              name: "_index",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "_text",
+              type: "string",
             },
           ],
-          name: "set",
+          name: "updateText",
           outputs: [],
           stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "status",
-          outputs: [
-            {
-              internalType: "enum YourContract.Status",
-              name: "",
-              type: "uint8",
-            },
-          ],
-          stateMutability: "view",
           type: "function",
         },
         {

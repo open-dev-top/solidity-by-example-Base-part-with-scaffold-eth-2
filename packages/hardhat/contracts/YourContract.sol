@@ -14,15 +14,12 @@ import "hardhat/console.sol";
  */
 contract YourContract {
 	// my test state variables
-	enum Status {
-		Pending,
-		Shipped,
-		Accepted,
-		Rejected,
-		Canceled
+	struct Todo {
+		string text;
+		bool completed;
 	}
 
-	Status public status;
+	Todo[] public todos;
 
 	// State Variables
 	// address public immutable owner;
@@ -63,21 +60,30 @@ contract YourContract {
 	//   0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
 	// test address_2:
 	//   0xadAa7598028f017f9796731D1b4e48320c1cB098
-	function get() public view returns(Status) {
-		return status;
+	function create(string calldata _text) public {
+		todos.push(Todo(_text, false));
+		todos.push(Todo({text: _text, completed: false}));
+
+		Todo memory todo;
+		todo.text = _text;
+		todo.completed = false;
+		todos.push(todo);
 	}
 
-	function set(Status _status) public {
-		status = _status;
+	function get(uint256 _index) public view returns(string memory text, bool completed) {
+		Todo storage todo = todos[_index];
+		return(todo.text, todo.completed);
 	}
 
-	function cancel() public {
-		status = Status.Canceled;
-	}
+    function updateText(uint256 _index, string calldata _text) public {
+        Todo storage todo = todos[_index];
+        todo.text = _text;
+    }
 
-	function reset() public {
-		delete status;
-	}
+    function toggleCompleted(uint256 _index) public {
+        Todo storage todo = todos[_index];
+        todo.completed = !todo.completed;
+    }
 
 	/**
 	 * Function that allows anyone to change the state variable "greeting" of the contract and increase the counters
