@@ -14,8 +14,9 @@ import "hardhat/console.sol";
  */
 contract YourContract {
 	// my test state variables
-	mapping(address => uint256) public myMap;
-	mapping(address => mapping(uint256 => bool)) public nested;
+	uint256[] public arr;
+	uint256[] public arr2 = [1, 2, 3];
+	uint256[10] public myFixedSizeArr;
 
 	// State Variables
 	// address public immutable owner;
@@ -56,29 +57,32 @@ contract YourContract {
 	//   0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
 	// test address_2:
 	//   0xadAa7598028f017f9796731D1b4e48320c1cB098
-
-	function get(address _addr) public view returns(uint256) {
-		return myMap[_addr];
+	function get(uint256 i) public view returns(uint256) {
+		return arr[i];
 	}
 
-	function get(address _addr, uint256 _i) public view returns(bool) {
-		return nested[_addr][_i];
+	function getArr() public view returns(uint256[] memory) {
+		return arr;
 	}
 
-	function set(address _addr, uint256 _i) public {
-		myMap[_addr] = _i;
+	function push(uint256 i) public {
+		arr.push(i);
 	}
 
-	function set(address _addr, uint256 _i, bool _boo) public {
-		nested[_addr][_i] = _boo;
+	function pop() public {
+		arr.pop();
 	}
 
-	function remove(address _addr) public {
-		delete myMap[_addr];
+	function getLength() public view returns (uint256) {
+		return arr.length;
 	}
 
-	function remove(address _addr, uint256 _i) public {
-		delete nested[_addr][_i];
+	function remove(uint256 index) public {
+		delete arr[index];
+	}
+
+	function examples() external {
+		uint256[] memory a = new uint256[](5);
 	}
 
 	/**

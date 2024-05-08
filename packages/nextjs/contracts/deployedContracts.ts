@@ -7,27 +7,22 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     YourContract: {
-      address: "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318",
+      address: "0x9A676e781A523b5d0C0e43731313A708CB607508",
       abi: [
         {
           inputs: [
             {
-              internalType: "address",
-              name: "_addr",
-              type: "address",
-            },
-            {
               internalType: "uint256",
-              name: "_i",
+              name: "",
               type: "uint256",
             },
           ],
-          name: "get",
+          name: "arr",
           outputs: [
             {
-              internalType: "bool",
+              internalType: "uint256",
               name: "",
-              type: "bool",
+              type: "uint256",
             },
           ],
           stateMutability: "view",
@@ -36,12 +31,64 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "address",
-              name: "_addr",
-              type: "address",
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "arr2",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "examples",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "i",
+              type: "uint256",
             },
           ],
           name: "get",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getArr",
+          outputs: [
+            {
+              internalType: "uint256[]",
+              name: "",
+              type: "uint256[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getLength",
           outputs: [
             {
               internalType: "uint256",
@@ -68,12 +115,12 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "address",
+              internalType: "uint256",
               name: "",
-              type: "address",
+              type: "uint256",
             },
           ],
-          name: "myMap",
+          name: "myFixedSizeArr",
           outputs: [
             {
               internalType: "uint256",
@@ -85,38 +132,8 @@ const deployedContracts = {
           type: "function",
         },
         {
-          inputs: [
-            {
-              internalType: "address",
-              name: "",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          name: "nested",
-          outputs: [
-            {
-              internalType: "bool",
-              name: "",
-              type: "bool",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "_addr",
-              type: "address",
-            },
-          ],
-          name: "remove",
+          inputs: [],
+          name: "pop",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
@@ -124,58 +141,25 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "address",
-              name: "_addr",
-              type: "address",
+              internalType: "uint256",
+              name: "i",
+              type: "uint256",
             },
+          ],
+          name: "push",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
             {
               internalType: "uint256",
-              name: "_i",
+              name: "index",
               type: "uint256",
             },
           ],
           name: "remove",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "_addr",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "_i",
-              type: "uint256",
-            },
-            {
-              internalType: "bool",
-              name: "_boo",
-              type: "bool",
-            },
-          ],
-          name: "set",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "_addr",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "_i",
-              type: "uint256",
-            },
-          ],
-          name: "set",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
