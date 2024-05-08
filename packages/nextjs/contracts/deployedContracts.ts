@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     YourContract: {
-      address: "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+      address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
       abi: [
         {
           anonymous: false,
@@ -41,25 +41,6 @@ const deployedContracts = {
           type: "event",
         },
         {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "x",
-              type: "uint256",
-            },
-          ],
-          name: "foo",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-        {
           inputs: [],
           name: "greeting",
           outputs: [
@@ -70,6 +51,13 @@ const deployedContracts = {
             },
           ],
           stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "loop",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
         {
@@ -96,25 +84,6 @@ const deployedContracts = {
           name: "setGreeting",
           outputs: [],
           stateMutability: "payable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "_x",
-              type: "uint256",
-            },
-          ],
-          name: "ternary",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "pure",
           type: "function",
         },
         {
