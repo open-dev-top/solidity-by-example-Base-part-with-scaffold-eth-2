@@ -7,38 +7,50 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     YourContract: {
-      address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+      address: "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318",
       abi: [
         {
-          anonymous: false,
           inputs: [
             {
-              indexed: true,
               internalType: "address",
-              name: "greetingSetter",
+              name: "_addr",
               type: "address",
             },
             {
-              indexed: false,
-              internalType: "string",
-              name: "newGreeting",
-              type: "string",
-            },
-            {
-              indexed: false,
-              internalType: "bool",
-              name: "premium",
-              type: "bool",
-            },
-            {
-              indexed: false,
               internalType: "uint256",
-              name: "value",
+              name: "_i",
               type: "uint256",
             },
           ],
-          name: "GreetingChange",
-          type: "event",
+          name: "get",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_addr",
+              type: "address",
+            },
+          ],
+          name: "get",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
         },
         {
           inputs: [],
@@ -54,41 +66,14 @@ const deployedContracts = {
           type: "function",
         },
         {
-          inputs: [],
-          name: "loop",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "premium",
-          outputs: [
-            {
-              internalType: "bool",
-              name: "",
-              type: "bool",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
           inputs: [
             {
-              internalType: "string",
-              name: "_newGreeting",
-              type: "string",
+              internalType: "address",
+              name: "",
+              type: "address",
             },
           ],
-          name: "setGreeting",
-          outputs: [],
-          stateMutability: "payable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "totalCounter",
+          name: "myMap",
           outputs: [
             {
               internalType: "uint256",
@@ -106,16 +91,93 @@ const deployedContracts = {
               name: "",
               type: "address",
             },
-          ],
-          name: "userGreetingCounter",
-          outputs: [
             {
               internalType: "uint256",
               name: "",
               type: "uint256",
             },
           ],
+          name: "nested",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
           stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_addr",
+              type: "address",
+            },
+          ],
+          name: "remove",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_addr",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "_i",
+              type: "uint256",
+            },
+          ],
+          name: "remove",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_addr",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "_i",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "_boo",
+              type: "bool",
+            },
+          ],
+          name: "set",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_addr",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "_i",
+              type: "uint256",
+            },
+          ],
+          name: "set",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
         {
