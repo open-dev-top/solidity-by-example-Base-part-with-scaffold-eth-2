@@ -14,18 +14,7 @@ import "hardhat/console.sol";
  */
 contract YourContract {
 	// my test state variables
-	uint256 public oneWei = 1 wei;
-	// 1 wei is equal to 1
-	bool public isOneWei = (oneWei == 1);
-
-	uint256 public oneGwei = 1 gwei;
-	// 1 gwei is equal to 10^9 gwei
-	bool public isOneGwei = (oneGwei == 1e9);
-
-	uint256 public oneEther = 1 ether;
-	// 1 ether is equal to 10^18 wei
-	bool public isOneEther = (oneEther == 1e18);
-
+	uint256 public i = 0;
 
 	// State Variables
 	// address public immutable owner;
@@ -62,7 +51,11 @@ contract YourContract {
 	// }
 
 	// my test function
-
+	function forever() public {
+		while(true) {
+			i+=1;
+		}
+	}
 
 	/**
 	 * Function that allows anyone to change the state variable "greeting" of the contract and increase the counters
