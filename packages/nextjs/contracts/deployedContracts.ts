@@ -7,93 +7,23 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     YourContract: {
-      address: "0x9A676e781A523b5d0C0e43731313A708CB607508",
+      address: "0x59b670e9fA9D0A427751Af201D676719a970857b",
       abi: [
         {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          name: "arr",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          name: "arr2",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
           inputs: [],
-          name: "examples",
+          name: "cancel",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
         },
         {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "i",
-              type: "uint256",
-            },
-          ],
+          inputs: [],
           name: "get",
           outputs: [
             {
-              internalType: "uint256",
+              internalType: "enum YourContract.Status",
               name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "getArr",
-          outputs: [
-            {
-              internalType: "uint256[]",
-              name: "",
-              type: "uint256[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "getLength",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
+              type: "uint8",
             },
           ],
           stateMutability: "view",
@@ -113,55 +43,36 @@ const deployedContracts = {
           type: "function",
         },
         {
+          inputs: [],
+          name: "reset",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
           inputs: [
             {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
+              internalType: "enum YourContract.Status",
+              name: "_status",
+              type: "uint8",
             },
           ],
-          name: "myFixedSizeArr",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
+          name: "set",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
         {
           inputs: [],
-          name: "pop",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
+          name: "status",
+          outputs: [
             {
-              internalType: "uint256",
-              name: "i",
-              type: "uint256",
+              internalType: "enum YourContract.Status",
+              name: "",
+              type: "uint8",
             },
           ],
-          name: "push",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "index",
-              type: "uint256",
-            },
-          ],
-          name: "remove",
-          outputs: [],
-          stateMutability: "nonpayable",
+          stateMutability: "view",
           type: "function",
         },
         {

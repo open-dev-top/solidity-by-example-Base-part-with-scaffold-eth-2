@@ -14,9 +14,15 @@ import "hardhat/console.sol";
  */
 contract YourContract {
 	// my test state variables
-	uint256[] public arr;
-	uint256[] public arr2 = [1, 2, 3];
-	uint256[10] public myFixedSizeArr;
+	enum Status {
+		Pending,
+		Shipped,
+		Accepted,
+		Rejected,
+		Canceled
+	}
+
+	Status public status;
 
 	// State Variables
 	// address public immutable owner;
@@ -57,32 +63,20 @@ contract YourContract {
 	//   0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
 	// test address_2:
 	//   0xadAa7598028f017f9796731D1b4e48320c1cB098
-	function get(uint256 i) public view returns(uint256) {
-		return arr[i];
+	function get() public view returns(Status) {
+		return status;
 	}
 
-	function getArr() public view returns(uint256[] memory) {
-		return arr;
+	function set(Status _status) public {
+		status = _status;
 	}
 
-	function push(uint256 i) public {
-		arr.push(i);
+	function cancel() public {
+		status = Status.Canceled;
 	}
 
-	function pop() public {
-		arr.pop();
-	}
-
-	function getLength() public view returns (uint256) {
-		return arr.length;
-	}
-
-	function remove(uint256 index) public {
-		delete arr[index];
-	}
-
-	function examples() external {
-		uint256[] memory a = new uint256[](5);
+	function reset() public {
+		delete status;
 	}
 
 	/**
