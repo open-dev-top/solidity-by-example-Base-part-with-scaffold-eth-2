@@ -2,6 +2,14 @@
 
 ## [Solidity by Example v 0.8.24](https://solidity-by-example.org/)
 
+## Edible Steps
+
+**Step 1**: Read through the example code and think about its structure.  
+**Step 2**: Try to write the complete code from memory.  
+**Step 3**: Debug your code. If there are errors, repeat Step 2.  
+**Step 4**: If you're unable to debug successfully after several attempts, revisit the example code.  
+**Step 5**: If your code works correctly, compare it with the example code. If there are no details that need adjustment, you are done.
+
 # 🏗 Scaffold-ETH 2
 
 <h4 align="center">
