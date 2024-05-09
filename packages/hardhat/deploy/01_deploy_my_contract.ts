@@ -3,12 +3,12 @@ import { DeployFunction } from "hardhat-deploy/types";
 import { Contract } from "ethers";
 
 /**
- * Deploys a contract named "YourContract2" using the deployer account and
+ * Deploys a contract named "MyContract" using the deployer account and
  * constructor arguments set to the deployer address
  *
  * @param hre HardhatRuntimeEnvironment object.
  */
-const deployYourContract2: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+const deployMyContract: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   /*
     On localhost, the deployer account is the one that comes with Hardhat, which is already funded.
 
@@ -22,7 +22,7 @@ const deployYourContract2: DeployFunction = async function (hre: HardhatRuntimeE
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy("YourContract2", {
+  await deploy("MyContract", {
     from: deployer,
     // Contract constructor arguments
     args: [],
@@ -33,12 +33,12 @@ const deployYourContract2: DeployFunction = async function (hre: HardhatRuntimeE
   });
 
   // Get the deployed contract to interact with it after deploying.
-  const YourContract2 = await hre.ethers.getContract<Contract>("YourContract2", deployer);
-  console.log("👋 Initial greeting2:", await YourContract2.greeting2());
+  const MyContract = await hre.ethers.getContract<Contract>("MyContract", deployer);
+  console.log("🤗 Initial greeting:", await MyContract.greeting());
 };
 
-export default deployYourContract2;
+export default deployMyContract;
 
 // Tags are useful if you have multiple deploy files and only want to run one of them.
-// e.g. yarn deploy --tags YourContract2
-deployYourContract2.tags = ["YourContract2"];
+// e.g. yarn deploy --tags MyContract
+deployMyContract.tags = ["MyContract"];

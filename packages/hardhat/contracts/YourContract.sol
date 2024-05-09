@@ -12,8 +12,8 @@ import "hardhat/console.sol";
  * It also allows the owner to withdraw the Ether in the contract
  * @author BuidlGuidl
  */
-contract YourContract2 {
-	string public greeting2 = "Building Unstoppable Apps!!!2";
+contract MyContract {
+	string public greeting = "Just have a try ~";
 }
 
 contract YourContract {
