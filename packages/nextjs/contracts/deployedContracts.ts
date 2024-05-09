@@ -7,17 +7,30 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     YourContract: {
-      address: "0x4A679253410272dd5232B3Ff7cF5dbB88f295319",
+      address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
       abi: [
         {
           inputs: [
             {
-              internalType: "string",
-              name: "_text",
-              type: "string",
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
             },
           ],
-          name: "create",
+          name: "arr",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "f",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
@@ -25,25 +38,20 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "uint256",
-              name: "_index",
-              type: "uint256",
+              internalType: "uint256[]",
+              name: "_arr",
+              type: "uint256[]",
             },
           ],
-          name: "get",
+          name: "g",
           outputs: [
             {
-              internalType: "string",
-              name: "text",
-              type: "string",
-            },
-            {
-              internalType: "bool",
-              name: "completed",
-              type: "bool",
+              internalType: "uint256[]",
+              name: "",
+              type: "uint256[]",
             },
           ],
-          stateMutability: "view",
+          stateMutability: "nonpayable",
           type: "function",
         },
         {
@@ -62,54 +70,12 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
+              internalType: "uint256[]",
+              name: "_arr",
+              type: "uint256[]",
             },
           ],
-          name: "todos",
-          outputs: [
-            {
-              internalType: "string",
-              name: "text",
-              type: "string",
-            },
-            {
-              internalType: "bool",
-              name: "completed",
-              type: "bool",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "_index",
-              type: "uint256",
-            },
-          ],
-          name: "toggleCompleted",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "_index",
-              type: "uint256",
-            },
-            {
-              internalType: "string",
-              name: "_text",
-              type: "string",
-            },
-          ],
-          name: "updateText",
+          name: "h",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
