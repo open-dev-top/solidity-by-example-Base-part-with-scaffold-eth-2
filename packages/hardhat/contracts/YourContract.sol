@@ -12,16 +12,13 @@ import "hardhat/console.sol";
  * It also allows the owner to withdraw the Ether in the contract
  * @author BuidlGuidl
  */
+contract YourContract2 {
+	string public greeting2 = "Building Unstoppable Apps!!!2";
+}
+
 contract YourContract {
 	// my test state variables
-	uint256[] public arr;
-	mapping(uint256 => address)  map;
 
-	struct MyStruct {
-		uint256 foo;
-	}
-
-	mapping(uint256 => MyStruct) myStructs;
 
 	// State Variables
 	// address public immutable owner;
@@ -62,26 +59,7 @@ contract YourContract {
 	//   0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
 	// test address_2:
 	//   0xadAa7598028f017f9796731D1b4e48320c1cB098
-	function f() public {
-		_f(arr, map, myStructs[1]);
-		MyStruct storage myStruct = myStructs[1];
-		MyStruct memory myMemStruct = MyStruct(0);
-	}
 
-	function _f(
-		uint256[] storage _arr,
-		mapping(uint256 => address) storage _map,
-		MyStruct storage _myStruct
-	) internal {
-
-	}
-
-	function g(uint256[] memory _arr) public returns (uint256[] memory) {
-	}
-
-	function h(uint256[] calldata _arr) external {
-
-	}
 
 	/**
 	 * Function that allows anyone to change the state variable "greeting" of the contract and increase the counters
