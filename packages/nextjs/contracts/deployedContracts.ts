@@ -6,9 +6,159 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
   31337: {
-    MyContract: {
-      address: "0x610178dA211FEF7D417bC0e6FeD39F05609AD788",
+    Callback: {
+      address: "0x0B306BF915C4d645ff596e518fAf3F9669b97016",
       abi: [
+        {
+          stateMutability: "nonpayable",
+          type: "fallback",
+        },
+        {
+          inputs: [],
+          name: "val",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    MyContract: {
+      address: "0x3Aa5ebB10DC797CAC828524e59A333d0A371443c",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "arr",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256[]",
+              name: "_arr",
+              type: "uint256[]",
+            },
+          ],
+          name: "arrayInput",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "arrayOutput",
+          outputs: [
+            {
+              internalType: "uint256[]",
+              name: "",
+              type: "uint256[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "assigned",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "x",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "b",
+              type: "bool",
+            },
+            {
+              internalType: "uint256",
+              name: "y",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "callFunc",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "callFuncWithKeyValue",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "destructuringAssignments",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
         {
           inputs: [],
           name: "greeting",
@@ -22,11 +172,101 @@ const deployedContracts = {
           stateMutability: "view",
           type: "function",
         },
+        {
+          inputs: [],
+          name: "named",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "x",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "b",
+              type: "bool",
+            },
+            {
+              internalType: "uint256",
+              name: "y",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "returnMany",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "x",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "y",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "z",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "a",
+              type: "address",
+            },
+            {
+              internalType: "bool",
+              name: "b",
+              type: "bool",
+            },
+            {
+              internalType: "string",
+              name: "c",
+              type: "string",
+            },
+          ],
+          name: "someFuncWithManyInputs",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
       ],
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318",
+      address: "0x68B1D87F95878fE05B998F19b66F4baba5De1aed",
       abi: [
         {
           inputs: [],
