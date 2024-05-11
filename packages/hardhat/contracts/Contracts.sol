@@ -28,34 +28,42 @@ import "hardhat/console.sol";
 contract MyContract {
 	string public greeting = "Just have a try!";
 
-	function testRequire(uint256 _i) public pure {
-		require(_i > 10, "Input must be greater than 10");
+	address public owner;
+	uint256 public x = 10;
+	bool public locked;
+
+	constructor() {
+		owner = msg.sender;
 	}
 
-	function testRevert(uint256 _i) public pure {
-		if (_i <= 10) {
-			revert("Input must be greater than 10");
-		}
+	modifier onlyOwner() {
+		require(msg.sender == owner, "Not owner");
+		_;
 	}
 
-	uint256 public num;
-
-	function testAssert() public view {
-		assert(num == 0);
+	modifier validAddress(address _addr) {
+		require(_addr != address(0), "Not valid address");
+		_;
 	}
 
-	error InsufficientBalance(
-		uint256 balance,
-		uint256 withdrawAmount
-	);
+	function changeOwner(
+		address _newOwner
+	) public onlyOwner validAddress(_newOwner) {
+		owner = _newOwner;
+	}
 
-	function testCustomError(uint256 _withdrawAmount) public view {
-		uint256 bal = address(this).balance;
-		if (bal < _withdrawAmount) {
-			revert InsufficientBalance({
-				balance: bal,
-				withdrawAmount: _withdrawAmount
-			});
+	modifier noReentrancy() {
+		require(!locked, "No reentrancy");
+
+		locked = true;
+		_;
+		locked = false;
+	}
+
+	function decrement(uint256 i) public noReentrancy {
+		x -= i;
+		if (i > 1) {
+			decrement(i - 1);
 		}
 	}
 }
