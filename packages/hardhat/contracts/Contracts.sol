@@ -29,37 +29,67 @@ contract MyContract {
 	string public greeting = "Just have a try!";
 }
 
-contract X {
-	string public name;
-
-	constructor(string memory _name) {
-		name = _name;
+contract A {
+	function foo() public pure virtual returns (string memory) {
+		return "A";
 	}
 }
 
-contract Y {
-	string public text;
-
-	constructor(string memory _text) {
-		text = _text;
+contract B is A {
+	function foo()
+		public
+		pure
+		virtual
+		override
+		returns (string memory)
+	{
+		return "B";
 	}
 }
 
-contract B is X("Input to X"), Y("Input to Y") {}
-
-contract C is X, Y {
-	constructor(
-		string memory _name,
-		string memory _text
-	) X(_name) Y(_text) {}
+contract C is A {
+	function foo()
+		public
+		pure
+		virtual
+		override
+		returns (string memory)
+	{
+		return "C";
+	}
 }
 
-contract D is X, Y {
-	constructor() X("X was called") Y("Y was called") {}
+contract D is B, C {
+	function foo()
+		public
+		pure
+		override(B, C)
+		returns (string memory)
+	{
+		return super.foo();
+	}
 }
 
-contract E is X, Y {
-	constructor() Y("Y was called") X("X was called") {}
+contract E is C, B {
+	function foo()
+		public
+		pure
+		override(C, B)
+		returns (string memory)
+	{
+		return super.foo();
+	}
+}
+
+contract F is A, B {
+	function foo()
+		public
+		pure
+		override(A, B)
+		returns (string memory)
+	{
+		return super.foo();
+	}
 }
 
 contract YourContract {
