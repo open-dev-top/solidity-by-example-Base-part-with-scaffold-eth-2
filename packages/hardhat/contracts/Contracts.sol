@@ -26,78 +26,16 @@ import "hardhat/console.sol";
 // }
 
 contract MyContract {
-	string public greeting = "Just have a try ~";
+	string public greeting = "Just have a try!";
 
-	function returnMany()
-		public
-		pure
-		returns (uint256, bool, uint256)
-	{
-		return (1, true, 2);
+	uint256 public x = 1;
+
+	function addToX(uint256 y) public view returns (uint256) {
+		return x + y;
 	}
 
-	function named()
-		public
-		pure
-		returns (uint256 x, bool b, uint256 y)
-	{
-		return (1, true, 2);
-	}
-
-	function assigned()
-		public
-		pure
-		returns (uint256 x, bool b, uint256 y)
-	{
-		// return (
-		x = 1;
-		y = 2;
-		b = true;
-		// );
-	}
-
-	function destructuringAssignments()
-		public
-		pure
-		returns (uint256, bool, uint256, uint256, uint256)
-	{
-		(uint256 i, bool b, uint256 j) = returnMany();
-		(uint256 x, , uint256 y) = (4, 5, 6);
-
-		return (i, b, j, x, y);
-	}
-
-	function arrayInput(uint256[] memory _arr) public {}
-
-	uint256[] public arr;
-
-	function arrayOutput() public view returns (uint256[] memory) {
-		return arr;
-	}
-
-	function someFuncWithManyInputs(
-		uint256 x,
-		uint256 y,
-		uint256 z,
-		address a,
-		bool b,
-		string memory c
-	) public pure returns (uint256) {}
-
-	function callFunc() external pure returns (uint256) {
-		return someFuncWithManyInputs(1, 2, 3, address(0), true, "c");
-	}
-
-	function callFuncWithKeyValue() external pure returns (uint256) {
-		return
-			someFuncWithManyInputs({
-				a: address(0),
-				b: true,
-				c: "c",
-				x: 1,
-				y: 2,
-				z: 3
-			});
+	function add(uint256 i, uint256 j) public pure returns (uint256) {
+		return i + j;
 	}
 }
 
