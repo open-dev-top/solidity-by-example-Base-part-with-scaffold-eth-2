@@ -7,107 +7,132 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     A: {
-      address: "0x998abeb3E57409262aE5b751f60747921B33613E",
+      address: "0x0E801D84Fa97b50751Dbf25036d067dCf18858bF",
       abi: [
         {
-          inputs: [],
-          name: "getName",
-          outputs: [
+          anonymous: false,
+          inputs: [
             {
+              indexed: false,
               internalType: "string",
-              name: "",
+              name: "message",
               type: "string",
             },
           ],
-          stateMutability: "view",
+          name: "Log",
+          type: "event",
+        },
+        {
+          inputs: [],
+          name: "bar",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
         {
           inputs: [],
-          name: "name",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "view",
+          name: "foo",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
       ],
       inheritedFunctions: {},
     },
     B: {
-      address: "0x84eA74d481Ee0A5332c457a4d796187F6Ba67fEB",
+      address: "0x8f86403A4DE0BB5791fa46B8e795C547942fE4Cf",
       abi: [
         {
-          inputs: [],
-          name: "foo",
-          outputs: [
+          anonymous: false,
+          inputs: [
             {
+              indexed: false,
               internalType: "string",
-              name: "",
+              name: "message",
               type: "string",
             },
           ],
-          stateMutability: "pure",
+          name: "Log",
+          type: "event",
+        },
+        {
+          inputs: [],
+          name: "bar",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "foo",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
       ],
       inheritedFunctions: {},
     },
     C: {
-      address: "0x70e0bA845a1A0F2DA3359C97E0285013525FFC49",
+      address: "0x9d4454B023096f34B160D6B654540c56A1F81688",
       abi: [
         {
-          inputs: [],
-          stateMutability: "nonpayable",
-          type: "constructor",
-        },
-        {
-          inputs: [],
-          name: "getName",
-          outputs: [
+          anonymous: false,
+          inputs: [
             {
+              indexed: false,
               internalType: "string",
-              name: "",
+              name: "message",
               type: "string",
             },
           ],
-          stateMutability: "view",
+          name: "Log",
+          type: "event",
+        },
+        {
+          inputs: [],
+          name: "bar",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
         {
           inputs: [],
-          name: "name",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "view",
+          name: "foo",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
       ],
       inheritedFunctions: {},
     },
     D: {
-      address: "0xa82fF9aFd8f496c3d6ac40E2a0F282E47488CFc9",
+      address: "0x5eb3Bc0a489C5A8288765d2336659EbCA68FCd00",
       abi: [
         {
-          inputs: [],
-          name: "foo",
-          outputs: [
+          anonymous: false,
+          inputs: [
             {
+              indexed: false,
               internalType: "string",
-              name: "",
+              name: "message",
               type: "string",
             },
           ],
-          stateMutability: "pure",
+          name: "Log",
+          type: "event",
+        },
+        {
+          inputs: [],
+          name: "bar",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "foo",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
       ],
@@ -152,7 +177,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     MyContract: {
-      address: "0x95401dc811bb5740090279Ba06cfA8fcF6113778",
+      address: "0x99bbA657f2BbC93c02D617f8bA121cB8Fc104Acf",
       abi: [
         {
           inputs: [],
@@ -231,7 +256,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0xf5059a5D33d5853360D16C683c16e67980206f36",
+      address: "0x4826533B4897376654Bb4d4AD88B7faFD0C98528",
       abi: [
         {
           inputs: [],
