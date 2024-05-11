@@ -43,7 +43,47 @@ const deployMyContract: DeployFunction = async function (hre: HardhatRuntimeEnvi
   //   autoMine: true,
   // });
 
-  
+  await deploy("E", {
+    from: deployer,
+    args: [],
+    log: true,
+    autoMine: true,
+  });
+
+  await deploy("B", {
+    from: deployer,
+    args: [],
+    log: true,
+    autoMine: true,
+  });
+
+  await deploy("C", {
+    from: deployer,
+    args: ["Input to X", "Input to Y"],
+    log: true,
+    autoMine: true,
+  });
+
+  await deploy("D", {
+    from: deployer,
+    args: [],
+    log: true,
+    autoMine: true,
+  });
+
+  await deploy("X", {
+    from: deployer,
+    args: ["Input to X"],
+    log: true,
+    autoMine: true,
+  });
+
+  await deploy("Y", {
+    from: deployer,
+    args: ["Input to Y"],
+    log: true,
+    autoMine: true,
+  });
 };
 
 export default deployMyContract;
