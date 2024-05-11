@@ -29,59 +29,58 @@ contract MyContract {
 	string public greeting = "Just have a try!";
 }
 
-contract A {
-	// This is called an event. You can emit events from your function
-	// and they are logged into the transaction log.
-	// In our case, this will be useful for tracing function calls.
-	event Log(string message);
-
-	function foo() public virtual {
-		emit Log("A.foo called");
+contract Base {
+	function privateFunc() private pure returns (string memory) {
+		return "private function called";
 	}
 
-	function bar() public virtual {
-		emit Log("A.bar called");
+	function testPrivateFunc() public pure returns (string memory) {
+		return privateFunc();
 	}
+
+	function internalFunc() internal pure returns (string memory) {
+		return "internal function called";
+	}
+
+	function testInternalFunc()
+		public
+		pure
+		virtual
+		returns (string memory)
+	{
+		return internalFunc();
+	}
+
+	function publicFunc() public pure returns (string memory) {
+		return "public function called";
+	}
+
+	function externalFunc() external returns (string memory) {
+		return "external function called";
+	}
+
+	// function testExternalFunc() public pure returns (string memory) {
+	//     return externalFunc();
+	// }
+
+	string private privateVar = "my private variable";
+	string internal internalVar = "my internal variable";
+	string public publicVar = "my public variable";
+	// string external externalVar = "my external variable";
 }
 
-contract B is A {
-	function foo() public virtual override {
-		emit Log("B.foo called");
-		A.foo();
-	}
+contract Child is Base {
+	// function testPrivateFunc() public pure returns (string memory) {
+	//     return privateFunc();
+	// }
 
-	function bar() public virtual override {
-		emit Log("B.bar called");
-		super.bar();
-	}
-}
-
-contract C is A {
-	function foo() public virtual override {
-		emit Log("C.foo called");
-		A.foo();
-	}
-
-	function bar() public virtual override {
-		emit Log("C.bar called");
-		super.bar();
-	}
-}
-
-contract D is B, C {
-	// Try:
-	// - Call D.foo and check the transaction logs.
-	//   Although D inherits A, B and C, it only called C and then A.
-	// - Call D.bar and check the transaction logs
-	//   D called C, then B, and finally A.
-	//   Although super was called twice (by B and C) it only called A once.
-
-	function foo() public override(B, C) {
-		super.foo();
-	}
-
-	function bar() public override(B, C) {
-		super.bar();
+	function testInternalFunc()
+		public
+		pure
+		override
+		returns (string memory)
+	{
+		return internalFunc();
 	}
 }
 
