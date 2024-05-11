@@ -43,14 +43,7 @@ const deployMyContract: DeployFunction = async function (hre: HardhatRuntimeEnvi
   //   autoMine: true,
   // });
 
-  await deploy("E", {
-    from: deployer,
-    args: [],
-    log: true,
-    autoMine: true,
-  });
-
-  await deploy("B", {
+  await deploy("A", {
     from: deployer,
     args: [],
     log: true,
@@ -63,29 +56,7 @@ const deployMyContract: DeployFunction = async function (hre: HardhatRuntimeEnvi
     log: true,
     autoMine: true,
   });
-
-  await deploy("D", {
-    from: deployer,
-    args: [],
-    log: true,
-    autoMine: true,
-  });
-
-  await deploy("A", {
-    from: deployer,
-    args: [],
-    log: true,
-    autoMine: true,
-  });
-
-  await deploy("F", {
-    from: deployer,
-    args: [],
-    log: true,
-    autoMine: true,
-  });
 };
-
 export default deployMyContract;
 
 // Tags are useful if you have multiple deploy files and only want to run one of them.

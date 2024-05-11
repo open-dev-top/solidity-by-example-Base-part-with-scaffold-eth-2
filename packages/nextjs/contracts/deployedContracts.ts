@@ -7,11 +7,11 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     A: {
-      address: "0x1613beB3B2C4f22Ee086B2b38C1476A3cE7f78E8",
+      address: "0x998abeb3E57409262aE5b751f60747921B33613E",
       abi: [
         {
           inputs: [],
-          name: "foo",
+          name: "getName",
           outputs: [
             {
               internalType: "string",
@@ -19,7 +19,20 @@ const deployedContracts = {
               type: "string",
             },
           ],
-          stateMutability: "pure",
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "name",
+          outputs: [
+            {
+              internalType: "string",
+              name: "",
+              type: "string",
+            },
+          ],
+          stateMutability: "view",
           type: "function",
         },
       ],
@@ -45,11 +58,16 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     C: {
-      address: "0x9E545E3C0baAB3E08CdfD552C960A1050f373042",
+      address: "0x70e0bA845a1A0F2DA3359C97E0285013525FFC49",
       abi: [
         {
           inputs: [],
-          name: "foo",
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          inputs: [],
+          name: "getName",
           outputs: [
             {
               internalType: "string",
@@ -57,7 +75,20 @@ const deployedContracts = {
               type: "string",
             },
           ],
-          stateMutability: "pure",
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "name",
+          outputs: [
+            {
+              internalType: "string",
+              name: "",
+              type: "string",
+            },
+          ],
+          stateMutability: "view",
           type: "function",
         },
       ],
@@ -121,7 +152,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     MyContract: {
-      address: "0xE6E340D132b5f46d1e472DebcD681B2aBc16e57E",
+      address: "0x95401dc811bb5740090279Ba06cfA8fcF6113778",
       abi: [
         {
           inputs: [],
@@ -200,7 +231,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x67d269191c92Caf3cD7723F116c85e6E9bf55933",
+      address: "0xf5059a5D33d5853360D16C683c16e67980206f36",
       abi: [
         {
           inputs: [],
