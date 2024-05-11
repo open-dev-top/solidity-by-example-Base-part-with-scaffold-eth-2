@@ -28,14 +28,35 @@ import "hardhat/console.sol";
 contract MyContract {
 	string public greeting = "Just have a try!";
 
-	uint256 public x = 1;
-
-	function addToX(uint256 y) public view returns (uint256) {
-		return x + y;
+	function testRequire(uint256 _i) public pure {
+		require(_i > 10, "Input must be greater than 10");
 	}
 
-	function add(uint256 i, uint256 j) public pure returns (uint256) {
-		return i + j;
+	function testRevert(uint256 _i) public pure {
+		if (_i <= 10) {
+			revert("Input must be greater than 10");
+		}
+	}
+
+	uint256 public num;
+
+	function testAssert() public view {
+		assert(num == 0);
+	}
+
+	error InsufficientBalance(
+		uint256 balance,
+		uint256 withdrawAmount
+	);
+
+	function testCustomError(uint256 _withdrawAmount) public view {
+		uint256 bal = address(this).balance;
+		if (bal < _withdrawAmount) {
+			revert InsufficientBalance({
+				balance: bal,
+				withdrawAmount: _withdrawAmount
+			});
+		}
 	}
 }
 

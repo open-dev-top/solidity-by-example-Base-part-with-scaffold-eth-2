@@ -7,50 +7,23 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     MyContract: {
-      address: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
       abi: [
         {
           inputs: [
             {
               internalType: "uint256",
-              name: "i",
+              name: "balance",
               type: "uint256",
             },
             {
               internalType: "uint256",
-              name: "j",
+              name: "withdrawAmount",
               type: "uint256",
             },
           ],
-          name: "add",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "y",
-              type: "uint256",
-            },
-          ],
-          name: "addToX",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
+          name: "InsufficientBalance",
+          type: "error",
         },
         {
           inputs: [],
@@ -67,7 +40,7 @@ const deployedContracts = {
         },
         {
           inputs: [],
-          name: "x",
+          name: "num",
           outputs: [
             {
               internalType: "uint256",
@@ -78,11 +51,57 @@ const deployedContracts = {
           stateMutability: "view",
           type: "function",
         },
+        {
+          inputs: [],
+          name: "testAssert",
+          outputs: [],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_withdrawAmount",
+              type: "uint256",
+            },
+          ],
+          name: "testCustomError",
+          outputs: [],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_i",
+              type: "uint256",
+            },
+          ],
+          name: "testRequire",
+          outputs: [],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_i",
+              type: "uint256",
+            },
+          ],
+          name: "testRevert",
+          outputs: [],
+          stateMutability: "pure",
+          type: "function",
+        },
       ],
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      address: "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
       abi: [
         {
           inputs: [],
