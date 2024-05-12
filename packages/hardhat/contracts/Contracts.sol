@@ -28,76 +28,53 @@ contract MyContract {
 	string public greeting = "Just have a try!";
 }
 
-contract Car {
+contract Foo {
 	address public owner;
-	string public model;
-	address public carAddr;
 
-	constructor(address _owner, string memory _model) payable {
+	constructor(address _owner) {
+		require(_owner != address(0), "invalid address");
+		assert(_owner != 0x0000000000000000000000000000000000000001);
 		owner = _owner;
-		model = _model;
-		carAddr = address(this);
+	}
+
+	function myFunc(uint256 x) public pure returns (string memory) {
+		require(x != 0, "require failed");
+		return "my func was called";
 	}
 }
 
-contract CarFactory {
-	Car[] public cars;
+contract Bar {
+	event Log(string message);
+	event LogBytes(bytes data);
 
-	function create(address _owner, string memory _model) public {
-		Car car = new Car(_owner, _model);
-		cars.push(car);
+	Foo public foo;
+
+	constructor() {
+		foo = new Foo(msg.sender);
 	}
 
-	function createAndSendEther(
-		address _owner,
-		string memory _model
-	) public payable {
-		Car car = (new Car){ value: msg.value }(_owner, _model);
-		cars.push(car);
+	// tryCatchExternalCall(0) => Log("external call failed")
+	// tryCatchExternalCall(1) => Log("my func was called")
+	function tryCatchExternalCall(uint256 _i) public {
+		try foo.myFunc(_i) returns (string memory result) {
+			emit Log(result);
+		} catch {
+			emit Log("external call failed");
+		}
 	}
 
-	function create2(
-		address _owner,
-		string memory _model,
-		bytes32 _salt
-	) public {
-		Car car = (new Car){ salt: _salt }(_owner, _model);
-		cars.push(car);
-	}
-
-	//_salt: Internal JSON-RPC error
-	function create2AndSendEther(
-		address _owner,
-		string memory _model,
-		bytes32 _salt
-	) public payable {
-		Car car = (new Car){ value: msg.value, salt: _salt }(
-			_owner,
-			_model
-		);
-		cars.push(car);
-	}
-
-	function getCar(
-		uint256 _index
-	)
-		public
-		view
-		returns (
-			address owner,
-			string memory model,
-			address carAddr,
-			uint256 balance
-		)
-	{
-		Car car = cars[_index];
-
-		return (
-			car.owner(),
-			car.model(),
-			car.carAddr(),
-			address(car).balance
-		);
+	// tryCatchNewContract(0x0000000000000000000000000000000000000000) => Log("invalid address")
+	// tryCatchNewContract(0x0000000000000000000000000000000000000001) => LogBytes("")
+	// tryCatchNewContract(0x0000000000000000000000000000000000000002) => Log("Foo created")
+	function tryCatchNewContract(address _owner) public {
+		try new Foo(_owner) returns (Foo foo) {
+			// you can use variable foo here
+			emit Log("Foo created");
+		} catch Error(string memory reason) {
+			emit Log(reason);
+		} catch (bytes memory reason) {
+			emit LogBytes(reason);
+		}
 	}
 }
 
