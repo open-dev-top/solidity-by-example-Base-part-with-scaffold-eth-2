@@ -345,20 +345,8 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     MyContract: {
-      address: "0xDC11f7E700A4c898AE5CAddB1082cFfa76512aDD",
+      address: "0xf4B146FbA71F41E0592668ffbF264F1D186b2Ca8",
       abi: [
-        {
-          inputs: [],
-          stateMutability: "payable",
-          type: "constructor",
-        },
-        {
-          inputs: [],
-          name: "deposit",
-          outputs: [],
-          stateMutability: "payable",
-          type: "function",
-        },
         {
           inputs: [],
           name: "greeting",
@@ -372,24 +360,50 @@ const deployedContracts = {
           stateMutability: "view",
           type: "function",
         },
+      ],
+      inheritedFunctions: {},
+    },
+    ReceiveEther: {
+      address: "0x172076E0166D1F9Cc711C77Adf8488051744980C",
+      abi: [
         {
-          inputs: [],
-          name: "notPayable",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
+          stateMutability: "payable",
+          type: "fallback",
         },
         {
           inputs: [],
-          name: "owner",
+          name: "getBalance",
           outputs: [
             {
-              internalType: "address payable",
+              internalType: "uint256",
               name: "",
-              type: "address",
+              type: "uint256",
             },
           ],
           stateMutability: "view",
+          type: "function",
+        },
+        {
+          stateMutability: "payable",
+          type: "receive",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    SendEther: {
+      address: "0x4EE6eCAD1c2Dae9f525404De8555724e3c35d07B",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "address payable",
+              name: "_to",
+              type: "address",
+            },
+          ],
+          name: "sendViaCall",
+          outputs: [],
+          stateMutability: "payable",
           type: "function",
         },
         {
@@ -399,22 +413,23 @@ const deployedContracts = {
               name: "_to",
               type: "address",
             },
-            {
-              internalType: "uint256",
-              name: "_amount",
-              type: "uint256",
-            },
           ],
-          name: "transfer",
+          name: "sendViaSend",
           outputs: [],
-          stateMutability: "nonpayable",
+          stateMutability: "payable",
           type: "function",
         },
         {
-          inputs: [],
-          name: "withdraw",
+          inputs: [
+            {
+              internalType: "address payable",
+              name: "_to",
+              type: "address",
+            },
+          ],
+          name: "sendViaTransfer",
           outputs: [],
-          stateMutability: "nonpayable",
+          stateMutability: "payable",
           type: "function",
         },
       ],
@@ -481,7 +496,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0xD8a5a9b31c3C0232E196d518E89Fd8bF83AcAd43",
+      address: "0x202CCe504e04bEd6fC0521238dDf04Bc9E8E15aB",
       abi: [
         {
           inputs: [],

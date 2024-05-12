@@ -26,27 +26,33 @@ import "hardhat/console.sol";
 // }
 contract MyContract {
 	string public greeting = "Just have a try!";
+}
 
-	address payable public owner;
+contract ReceiveEther {
+	receive() external payable {}
 
-	constructor() payable {
-		owner = payable(msg.sender);
+	fallback() external payable {}
+
+	function getBalance() public view returns (uint256) {
+		return address(this).balance;
+	}
+}
+
+contract SendEther {
+	function sendViaTransfer(address payable _to) public payable {
+		_to.transfer(msg.value);
 	}
 
-	function deposit() public payable {}
-
-	function notPayable() public {}
-
-	function withdraw() public {
-		uint256 amout = address(this).balance;
-
-		(bool success, ) = owner.call{ value: amout }("");
-		require(success, "Failed to send Ether");
+	function sendViaSend(address payable _to) public payable {
+		bool sent = _to.send(msg.value);
+		require(sent, "Failed to send Ether");
 	}
 
-	function transfer(address payable _to, uint256 _amount) public {
-		(bool success, ) = _to.call{ value: _amount }("");
-		require(success, "Failed to send Ether");
+	function sendViaCall(address payable _to) public payable {
+		(bool sent, bytes memory data) = _to.call{ value: msg.value }(
+			""
+		);
+		require(sent, "Failed to send Ether");
 	}
 }
 
