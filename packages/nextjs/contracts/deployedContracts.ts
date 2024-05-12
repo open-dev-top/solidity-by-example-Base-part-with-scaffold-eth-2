@@ -344,8 +344,54 @@ const deployedContracts = {
       ],
       inheritedFunctions: {},
     },
+    Fallback: {
+      address: "0xC9a43158891282A2B1475592D5719c001986Aaec",
+      abi: [
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "string",
+              name: "func",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "gas",
+              type: "uint256",
+            },
+          ],
+          name: "Log",
+          type: "event",
+        },
+        {
+          stateMutability: "payable",
+          type: "fallback",
+        },
+        {
+          inputs: [],
+          name: "getBalance",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          stateMutability: "payable",
+          type: "receive",
+        },
+      ],
+      inheritedFunctions: {},
+    },
     MyContract: {
-      address: "0xf4B146FbA71F41E0592668ffbF264F1D186b2Ca8",
+      address: "0x46b142DD1E924FAb83eCc3c08e4D46E82f005e0E",
       abi: [
         {
           inputs: [],
@@ -435,6 +481,38 @@ const deployedContracts = {
       ],
       inheritedFunctions: {},
     },
+    SendToFallback: {
+      address: "0x1c85638e118b37167e9298c2268758e058DdfDA0",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "address payable",
+              name: "_to",
+              type: "address",
+            },
+          ],
+          name: "callFallback",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address payable",
+              name: "_to",
+              type: "address",
+            },
+          ],
+          name: "transferToFallback",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
     X: {
       address: "0x3Aa5ebB10DC797CAC828524e59A333d0A371443c",
       abi: [
@@ -496,7 +574,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x202CCe504e04bEd6fC0521238dDf04Bc9E8E15aB",
+      address: "0xfbC22278A96299D91d41C453234d97b4F5Eb9B2d",
       abi: [
         {
           inputs: [],
