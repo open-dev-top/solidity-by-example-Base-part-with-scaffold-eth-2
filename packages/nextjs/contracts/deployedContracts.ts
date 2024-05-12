@@ -231,50 +231,134 @@ const deployedContracts = {
       ],
       inheritedFunctions: {},
     },
-    Caller: {
-      address: "0x86A2EE8FAf9A840F7a2c64CA3d51209F9A02081D",
+    Callee: {
+      address: "0xffa7CA1AEEEbBc30C874d32C7e22F052BbEa0429",
       abi: [
         {
-          anonymous: false,
           inputs: [
             {
-              indexed: false,
-              internalType: "bool",
-              name: "success",
-              type: "bool",
-            },
-            {
-              indexed: false,
-              internalType: "bytes",
-              name: "data",
-              type: "bytes",
+              internalType: "uint256",
+              name: "_x",
+              type: "uint256",
             },
           ],
-          name: "Response",
-          type: "event",
-        },
-        {
-          inputs: [
+          name: "setX",
+          outputs: [
             {
-              internalType: "address payable",
-              name: "_addr",
-              type: "address",
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
             },
           ],
-          name: "testCallDoesNotExist",
-          outputs: [],
-          stateMutability: "payable",
+          stateMutability: "nonpayable",
           type: "function",
         },
         {
           inputs: [
             {
-              internalType: "address payable",
+              internalType: "uint256",
+              name: "_x",
+              type: "uint256",
+            },
+          ],
+          name: "setXandSendEther",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "value",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "x",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    Caller: {
+      address: "0x3aAde2dCD2Df6a8cAc689EE797591b2913658659",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "contract Callee",
+              name: "_callee",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "_x",
+              type: "uint256",
+            },
+          ],
+          name: "setX",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
               name: "_addr",
               type: "address",
             },
+            {
+              internalType: "uint256",
+              name: "_x",
+              type: "uint256",
+            },
           ],
-          name: "testCallFoo",
+          name: "setXFromAddress",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "contract Callee",
+              name: "_callee",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "_x",
+              type: "uint256",
+            },
+          ],
+          name: "setXandSendEther",
           outputs: [],
           stateMutability: "payable",
           type: "function",
@@ -522,7 +606,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     MyContract: {
-      address: "0x276C216D241856199A83bf27b2286659e5b877D3",
+      address: "0x5bf5b11053e734690269C6B9D438F8C9d48F528A",
       abi: [
         {
           inputs: [],
@@ -764,7 +848,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0xfaAddC93baf78e89DCf37bA67943E1bE8F37Bb8c",
+      address: "0x3155755b79aA083bd953911C92705B7aA82a18F9",
       abi: [
         {
           inputs: [],
