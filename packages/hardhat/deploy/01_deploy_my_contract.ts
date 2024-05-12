@@ -43,14 +43,14 @@ const deployMyContract: DeployFunction = async function (hre: HardhatRuntimeEnvi
   //   autoMine: true,
   // });
 
-  await deploy("Fallback", {
+  await deploy("Receiver", {
     from: deployer,
     args: [],
     log: true,
     autoMine: true,
   });
 
-  await deploy("SendToFallback", {
+  await deploy("Caller", {
     from: deployer,
     args: [],
     log: true,

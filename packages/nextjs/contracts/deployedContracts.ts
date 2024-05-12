@@ -176,6 +176,57 @@ const deployedContracts = {
       ],
       inheritedFunctions: {},
     },
+    Caller: {
+      address: "0x86A2EE8FAf9A840F7a2c64CA3d51209F9A02081D",
+      abi: [
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "bool",
+              name: "success",
+              type: "bool",
+            },
+            {
+              indexed: false,
+              internalType: "bytes",
+              name: "data",
+              type: "bytes",
+            },
+          ],
+          name: "Response",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address payable",
+              name: "_addr",
+              type: "address",
+            },
+          ],
+          name: "testCallDoesNotExist",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address payable",
+              name: "_addr",
+              type: "address",
+            },
+          ],
+          name: "testCallFoo",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
     Child: {
       address: "0x7969c5eD335650692Bc04293B07F5BF2e7A673C0",
       abi: [
@@ -391,7 +442,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     MyContract: {
-      address: "0x46b142DD1E924FAb83eCc3c08e4D46E82f005e0E",
+      address: "0x49fd2BE640DB2910c2fAb69bB8531Ab6E76127ff",
       abi: [
         {
           inputs: [],
@@ -432,6 +483,65 @@ const deployedContracts = {
         {
           stateMutability: "payable",
           type: "receive",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    Receiver: {
+      address: "0x4631BCAbD6dF18D94796344963cB60d44a4136b6",
+      abi: [
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address",
+              name: "caller",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "message",
+              type: "string",
+            },
+          ],
+          name: "Received",
+          type: "event",
+        },
+        {
+          stateMutability: "payable",
+          type: "fallback",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "_message",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "_x",
+              type: "uint256",
+            },
+          ],
+          name: "foo",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "payable",
+          type: "function",
         },
       ],
       inheritedFunctions: {},
@@ -574,7 +684,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0xfbC22278A96299D91d41C453234d97b4F5Eb9B2d",
+      address: "0x7A9Ec1d04904907De0ED7b6839CcdD59c3716AC9",
       abi: [
         {
           inputs: [],
