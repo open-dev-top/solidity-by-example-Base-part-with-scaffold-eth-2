@@ -43,14 +43,14 @@ const deployMyContract: DeployFunction = async function (hre: HardhatRuntimeEnvi
   //   autoMine: true,
   // });
 
-  await deploy("Receiver", {
+  await deploy("A", {
     from: deployer,
     args: [],
     log: true,
     autoMine: true,
   });
 
-  await deploy("Caller", {
+  await deploy("B", {
     from: deployer,
     args: [],
     log: true,

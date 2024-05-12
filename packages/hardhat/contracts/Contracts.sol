@@ -28,46 +28,29 @@ contract MyContract {
 	string public greeting = "Just have a try!";
 }
 
-contract Receiver {
-	event Received(address caller, uint256 amount, string message);
+contract B {
+	// NOTE: storage layout must be the same as contract A
+	uint256 public num;
+	address public sender;
+	uint256 public value;
 
-	fallback() external payable {
-		emit Received(msg.sender, msg.value, "Fallback was called");
-	}
-
-	function foo(
-		string memory _message,
-		uint256 _x
-	) public payable returns (uint256) {
-		emit Received(msg.sender, msg.value, _message);
-		return _x + 1;
+	function setVars(uint256 _num) public payable {
+		num = _num;
+		sender = msg.sender;
+		value = msg.value;
 	}
 }
 
-contract Caller {
-	event Response(bool success, bytes data);
+contract A {
+	uint256 public num;
+	address public sender;
+	uint256 public value;
 
-	function testCallFoo(address payable _addr) public payable {
-		(bool success, bytes memory data) = _addr.call{
-			value: msg.value,
-			gas: 5000
-		}(
-			abi.encodeWithSignature(
-				"foo(string,uint256)",
-				"call foo",
-				123
-			)
+	function setVars(address _contract, uint256 _num) public payable {
+		// A's storage is set, B is not modified.
+		(bool success, bytes memory data) = _contract.delegatecall(
+			abi.encodeWithSignature("setVars(uint256)", _num)
 		);
-		emit Response(success, data);
-	}
-
-	function testCallDoesNotExist(
-		address payable _addr
-	) public payable {
-		(bool success, bytes memory data) = _addr.call{
-			value: msg.value
-		}(abi.encodeWithSignature("doesNotExist()"));
-		emit Response(success, data);
 	}
 }
 
