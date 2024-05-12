@@ -496,8 +496,33 @@ const deployedContracts = {
       ],
       inheritedFunctions: {},
     },
+    FunctionSelector: {
+      address: "0x3347B4d90ebe72BeFb30444C9966B2B990aE9FcB",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "_func",
+              type: "string",
+            },
+          ],
+          name: "getSelector",
+          outputs: [
+            {
+              internalType: "bytes4",
+              name: "",
+              type: "bytes4",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
     MyContract: {
-      address: "0xD0141E899a65C95a556fE2B27e5982A6DE7fDD7A",
+      address: "0x276C216D241856199A83bf27b2286659e5b877D3",
       abi: [
         {
           inputs: [],
@@ -739,7 +764,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0x34B40BA116d5Dec75548a9e9A8f15411461E8c70",
+      address: "0xfaAddC93baf78e89DCf37bA67943E1bE8F37Bb8c",
       abi: [
         {
           inputs: [],

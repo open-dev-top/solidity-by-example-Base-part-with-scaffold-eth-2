@@ -28,29 +28,17 @@ contract MyContract {
 	string public greeting = "Just have a try!";
 }
 
-contract B {
-	// NOTE: storage layout must be the same as contract A
-	uint256 public num;
-	address public sender;
-	uint256 public value;
-
-	function setVars(uint256 _num) public payable {
-		num = _num;
-		sender = msg.sender;
-		value = msg.value;
-	}
-}
-
-contract A {
-	uint256 public num;
-	address public sender;
-	uint256 public value;
-
-	function setVars(address _contract, uint256 _num) public payable {
-		// A's storage is set, B is not modified.
-		(bool success, bytes memory data) = _contract.delegatecall(
-			abi.encodeWithSignature("setVars(uint256)", _num)
-		);
+/*
+    "transfer(address,uint256)"
+    0xa9059cbb
+    "transferFrom(address,address,uint256)"
+    0x23b872dd
+    */
+contract FunctionSelector {
+	function getSelector(
+		string calldata _func
+	) external pure returns (bytes4) {
+		return bytes4(keccak256(bytes(_func)));
 	}
 }
 
