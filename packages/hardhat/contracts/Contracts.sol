@@ -24,32 +24,29 @@ import "hardhat/console.sol";
 // 		val = ITest(msg.sender).val();
 // 	}
 // }
-
-contract Counter {
-	uint256 public count;
-
-	function increment() external {
-		count += 1;
-	}
-}
-
-interface ICounter {
-	function count() external view returns (uint256);
-
-	function increment() external;
-}
-
 contract MyContract {
 	string public greeting = "Just have a try!";
 
-	function incrementCounter(address _counter) external {
-		ICounter(_counter).increment();
+	address payable public owner;
+
+	constructor() payable {
+		owner = payable(msg.sender);
 	}
 
-	function getCount(
-		address _counter
-	) external view returns (uint256) {
-		return ICounter(_counter).count();
+	function deposit() public payable {}
+
+	function notPayable() public {}
+
+	function withdraw() public {
+		uint256 amout = address(this).balance;
+
+		(bool success, ) = owner.call{ value: amout }("");
+		require(success, "Failed to send Ether");
+	}
+
+	function transfer(address payable _to, uint256 _amount) public {
+		(bool success, ) = _to.call{ value: _amount }("");
+		require(success, "Failed to send Ether");
 	}
 }
 

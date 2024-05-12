@@ -345,25 +345,18 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     MyContract: {
-      address: "0x04C89607413713Ec9775E14b954286519d836FEf",
+      address: "0xDC11f7E700A4c898AE5CAddB1082cFfa76512aDD",
       abi: [
         {
-          inputs: [
-            {
-              internalType: "address",
-              name: "_counter",
-              type: "address",
-            },
-          ],
-          name: "getCount",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
+          inputs: [],
+          stateMutability: "payable",
+          type: "constructor",
+        },
+        {
+          inputs: [],
+          name: "deposit",
+          outputs: [],
+          stateMutability: "payable",
           type: "function",
         },
         {
@@ -380,14 +373,46 @@ const deployedContracts = {
           type: "function",
         },
         {
-          inputs: [
+          inputs: [],
+          name: "notPayable",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "owner",
+          outputs: [
             {
-              internalType: "address",
-              name: "_counter",
+              internalType: "address payable",
+              name: "",
               type: "address",
             },
           ],
-          name: "incrementCounter",
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address payable",
+              name: "_to",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "_amount",
+              type: "uint256",
+            },
+          ],
+          name: "transfer",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "withdraw",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
@@ -456,7 +481,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0xdbC43Ba45381e02825b14322cDdd15eC4B3164E6",
+      address: "0xD8a5a9b31c3C0232E196d518E89Fd8bF83AcAd43",
       abi: [
         {
           inputs: [],
