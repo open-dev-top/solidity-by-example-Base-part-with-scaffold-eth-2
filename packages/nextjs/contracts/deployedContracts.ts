@@ -247,6 +247,32 @@ const deployedContracts = {
       ],
       inheritedFunctions: {},
     },
+    Counter: {
+      address: "0x4C4a2f8c81640e47606d3fd77B353E87Ba015584",
+      abi: [
+        {
+          inputs: [],
+          name: "count",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "increment",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
     D: {
       address: "0x5eb3Bc0a489C5A8288765d2336659EbCA68FCd00",
       abi: [
@@ -319,8 +345,27 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     MyContract: {
-      address: "0x82e01223d51Eb87e16A03E24687EDF0F294da6f1",
+      address: "0x04C89607413713Ec9775E14b954286519d836FEf",
       abi: [
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_counter",
+              type: "address",
+            },
+          ],
+          name: "getCount",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
         {
           inputs: [],
           name: "greeting",
@@ -332,6 +377,19 @@ const deployedContracts = {
             },
           ],
           stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_counter",
+              type: "address",
+            },
+          ],
+          name: "incrementCounter",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
       ],
@@ -398,7 +456,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     YourContract: {
-      address: "0xCD8a1C3ba11CF5ECfa6267617243239504a98d90",
+      address: "0xdbC43Ba45381e02825b14322cDdd15eC4B3164E6",
       abi: [
         {
           inputs: [],
