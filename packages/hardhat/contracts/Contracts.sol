@@ -28,42 +28,76 @@ contract MyContract {
 	string public greeting = "Just have a try!";
 }
 
-contract Callee {
-	uint256 public x;
-	uint256 public value;
+contract Car {
+	address public owner;
+	string public model;
+	address public carAddr;
 
-	function setX(uint256 _x) public returns (uint256) {
-		x = _x;
-		return x;
-	}
-
-	function setXandSendEther(
-		uint256 _x
-	) public payable returns (uint256, uint256) {
-		x = _x;
-		value = msg.value;
-
-		return (x, value);
+	constructor(address _owner, string memory _model) payable {
+		owner = _owner;
+		model = _model;
+		carAddr = address(this);
 	}
 }
 
-contract Caller {
-	function setX(Callee _callee, uint256 _x) public {
-		uint256 x = _callee.setX(_x);
+contract CarFactory {
+	Car[] public cars;
+
+	function create(address _owner, string memory _model) public {
+		Car car = new Car(_owner, _model);
+		cars.push(car);
 	}
 
-	function setXFromAddress(address _addr, uint256 _x) public {
-		Callee callee = Callee(_addr);
-		callee.setX(_x);
-	}
-
-	function setXandSendEther(
-		Callee _callee,
-		uint256 _x
+	function createAndSendEther(
+		address _owner,
+		string memory _model
 	) public payable {
-		(uint256 x, uint256 value) = _callee.setXandSendEther{
-			value: msg.value
-		}(_x);
+		Car car = (new Car){ value: msg.value }(_owner, _model);
+		cars.push(car);
+	}
+
+	function create2(
+		address _owner,
+		string memory _model,
+		bytes32 _salt
+	) public {
+		Car car = (new Car){ salt: _salt }(_owner, _model);
+		cars.push(car);
+	}
+
+	//_salt: Internal JSON-RPC error
+	function create2AndSendEther(
+		address _owner,
+		string memory _model,
+		bytes32 _salt
+	) public payable {
+		Car car = (new Car){ value: msg.value, salt: _salt }(
+			_owner,
+			_model
+		);
+		cars.push(car);
+	}
+
+	function getCar(
+		uint256 _index
+	)
+		public
+		view
+		returns (
+			address owner,
+			string memory model,
+			address carAddr,
+			uint256 balance
+		)
+	{
+		Car car = cars[_index];
+
+		return (
+			car.owner(),
+			car.model(),
+			car.carAddr(),
+			address(car).balance
+		);
 	}
 }
 

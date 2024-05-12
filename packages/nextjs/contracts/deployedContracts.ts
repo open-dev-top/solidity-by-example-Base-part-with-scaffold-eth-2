@@ -6,25 +6,28 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
   31337: {
-    A: {
-      address: "0x07882Ae1ecB7429a84f1D53048d35c4bB2056877",
+    Car: {
+      address: "0x0165878A594ca255338adfa4d48449f69242Eb8F",
       abi: [
         {
-          inputs: [],
-          name: "num",
-          outputs: [
+          inputs: [
             {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
+              internalType: "address",
+              name: "_owner",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "_model",
+              type: "string",
             },
           ],
-          stateMutability: "view",
-          type: "function",
+          stateMutability: "payable",
+          type: "constructor",
         },
         {
           inputs: [],
-          name: "sender",
+          name: "carAddr",
           outputs: [
             {
               internalType: "address",
@@ -36,50 +39,13 @@ const deployedContracts = {
           type: "function",
         },
         {
-          inputs: [
-            {
-              internalType: "address",
-              name: "_contract",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "_num",
-              type: "uint256",
-            },
-          ],
-          name: "setVars",
-          outputs: [],
-          stateMutability: "payable",
-          type: "function",
-        },
-        {
           inputs: [],
-          name: "value",
+          name: "model",
           outputs: [
             {
-              internalType: "uint256",
+              internalType: "string",
               name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    B: {
-      address: "0x22753E4264FDDc6181dc7cce468904A80a363E44",
-      abi: [
-        {
-          inputs: [],
-          name: "num",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
+              type: "string",
             },
           ],
           stateMutability: "view",
@@ -87,7 +53,7 @@ const deployedContracts = {
         },
         {
           inputs: [],
-          name: "sender",
+          name: "owner",
           outputs: [
             {
               internalType: "address",
@@ -98,231 +64,45 @@ const deployedContracts = {
           stateMutability: "view",
           type: "function",
         },
+      ],
+      inheritedFunctions: {},
+    },
+    CarFactory: {
+      address: "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853",
+      abi: [
         {
           inputs: [
             {
               internalType: "uint256",
-              name: "_num",
-              type: "uint256",
-            },
-          ],
-          name: "setVars",
-          outputs: [],
-          stateMutability: "payable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "value",
-          outputs: [
-            {
-              internalType: "uint256",
               name: "",
               type: "uint256",
             },
           ],
-          stateMutability: "view",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    Base: {
-      address: "0x2bdCC0de6bE1f7D2ee689a0342D76F52E8EFABa3",
-      abi: [
-        {
-          inputs: [],
-          name: "externalFunc",
+          name: "cars",
           outputs: [
             {
-              internalType: "string",
+              internalType: "contract Car",
               name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "publicFunc",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "publicVar",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
+              type: "address",
             },
           ],
           stateMutability: "view",
           type: "function",
         },
         {
-          inputs: [],
-          name: "testInternalFunc",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "testPrivateFunc",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    C: {
-      address: "0x9d4454B023096f34B160D6B654540c56A1F81688",
-      abi: [
-        {
-          anonymous: false,
           inputs: [
             {
-              indexed: false,
-              internalType: "string",
-              name: "message",
-              type: "string",
-            },
-          ],
-          name: "Log",
-          type: "event",
-        },
-        {
-          inputs: [],
-          name: "bar",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "foo",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    Callee: {
-      address: "0xffa7CA1AEEEbBc30C874d32C7e22F052BbEa0429",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "_x",
-              type: "uint256",
-            },
-          ],
-          name: "setX",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "_x",
-              type: "uint256",
-            },
-          ],
-          name: "setXandSendEther",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "payable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "value",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "x",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    Caller: {
-      address: "0x3aAde2dCD2Df6a8cAc689EE797591b2913658659",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "contract Callee",
-              name: "_callee",
+              internalType: "address",
+              name: "_owner",
               type: "address",
             },
             {
-              internalType: "uint256",
-              name: "_x",
-              type: "uint256",
+              internalType: "string",
+              name: "_model",
+              type: "string",
             },
           ],
-          name: "setX",
+          name: "create",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
@@ -331,282 +111,105 @@ const deployedContracts = {
           inputs: [
             {
               internalType: "address",
-              name: "_addr",
+              name: "_owner",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "_model",
+              type: "string",
+            },
+            {
+              internalType: "bytes32",
+              name: "_salt",
+              type: "bytes32",
+            },
+          ],
+          name: "create2",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_owner",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "_model",
+              type: "string",
+            },
+            {
+              internalType: "bytes32",
+              name: "_salt",
+              type: "bytes32",
+            },
+          ],
+          name: "create2AndSendEther",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_owner",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "_model",
+              type: "string",
+            },
+          ],
+          name: "createAndSendEther",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "_index",
+              type: "uint256",
+            },
+          ],
+          name: "getCar",
+          outputs: [
+            {
+              internalType: "address",
+              name: "owner",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "model",
+              type: "string",
+            },
+            {
+              internalType: "address",
+              name: "carAddr",
               type: "address",
             },
             {
               internalType: "uint256",
-              name: "_x",
-              type: "uint256",
-            },
-          ],
-          name: "setXFromAddress",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "contract Callee",
-              name: "_callee",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "_x",
-              type: "uint256",
-            },
-          ],
-          name: "setXandSendEther",
-          outputs: [],
-          stateMutability: "payable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    Child: {
-      address: "0x7969c5eD335650692Bc04293B07F5BF2e7A673C0",
-      abi: [
-        {
-          inputs: [],
-          name: "externalFunc",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "publicFunc",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "publicVar",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "testInternalFunc",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "testPrivateFunc",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    Counter: {
-      address: "0x4C4a2f8c81640e47606d3fd77B353E87Ba015584",
-      abi: [
-        {
-          inputs: [],
-          name: "count",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
+              name: "balance",
               type: "uint256",
             },
           ],
           stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "increment",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    D: {
-      address: "0x5eb3Bc0a489C5A8288765d2336659EbCA68FCd00",
-      abi: [
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: false,
-              internalType: "string",
-              name: "message",
-              type: "string",
-            },
-          ],
-          name: "Log",
-          type: "event",
-        },
-        {
-          inputs: [],
-          name: "bar",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "foo",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    E: {
-      address: "0xc3e53F4d16Ae77Db1c982e75a937B9f60FE63690",
-      abi: [
-        {
-          inputs: [],
-          name: "foo",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    F: {
-      address: "0x851356ae760d987E095750cCeb3bC6014560891C",
-      abi: [
-        {
-          inputs: [],
-          name: "foo",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    Fallback: {
-      address: "0xC9a43158891282A2B1475592D5719c001986Aaec",
-      abi: [
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: false,
-              internalType: "string",
-              name: "func",
-              type: "string",
-            },
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "gas",
-              type: "uint256",
-            },
-          ],
-          name: "Log",
-          type: "event",
-        },
-        {
-          stateMutability: "payable",
-          type: "fallback",
-        },
-        {
-          inputs: [],
-          name: "getBalance",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          stateMutability: "payable",
-          type: "receive",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    FunctionSelector: {
-      address: "0x3347B4d90ebe72BeFb30444C9966B2B990aE9FcB",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "string",
-              name: "_func",
-              type: "string",
-            },
-          ],
-          name: "getSelector",
-          outputs: [
-            {
-              internalType: "bytes4",
-              name: "",
-              type: "bytes4",
-            },
-          ],
-          stateMutability: "pure",
           type: "function",
         },
       ],
       inheritedFunctions: {},
     },
     MyContract: {
-      address: "0x5bf5b11053e734690269C6B9D438F8C9d48F528A",
+      address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
       abi: [
         {
           inputs: [],
@@ -624,231 +227,8 @@ const deployedContracts = {
       ],
       inheritedFunctions: {},
     },
-    ReceiveEther: {
-      address: "0x172076E0166D1F9Cc711C77Adf8488051744980C",
-      abi: [
-        {
-          stateMutability: "payable",
-          type: "fallback",
-        },
-        {
-          inputs: [],
-          name: "getBalance",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          stateMutability: "payable",
-          type: "receive",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    Receiver: {
-      address: "0x4631BCAbD6dF18D94796344963cB60d44a4136b6",
-      abi: [
-        {
-          anonymous: false,
-          inputs: [
-            {
-              indexed: false,
-              internalType: "address",
-              name: "caller",
-              type: "address",
-            },
-            {
-              indexed: false,
-              internalType: "uint256",
-              name: "amount",
-              type: "uint256",
-            },
-            {
-              indexed: false,
-              internalType: "string",
-              name: "message",
-              type: "string",
-            },
-          ],
-          name: "Received",
-          type: "event",
-        },
-        {
-          stateMutability: "payable",
-          type: "fallback",
-        },
-        {
-          inputs: [
-            {
-              internalType: "string",
-              name: "_message",
-              type: "string",
-            },
-            {
-              internalType: "uint256",
-              name: "_x",
-              type: "uint256",
-            },
-          ],
-          name: "foo",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "payable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    SendEther: {
-      address: "0x4EE6eCAD1c2Dae9f525404De8555724e3c35d07B",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "address payable",
-              name: "_to",
-              type: "address",
-            },
-          ],
-          name: "sendViaCall",
-          outputs: [],
-          stateMutability: "payable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address payable",
-              name: "_to",
-              type: "address",
-            },
-          ],
-          name: "sendViaSend",
-          outputs: [],
-          stateMutability: "payable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address payable",
-              name: "_to",
-              type: "address",
-            },
-          ],
-          name: "sendViaTransfer",
-          outputs: [],
-          stateMutability: "payable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    SendToFallback: {
-      address: "0x1c85638e118b37167e9298c2268758e058DdfDA0",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "address payable",
-              name: "_to",
-              type: "address",
-            },
-          ],
-          name: "callFallback",
-          outputs: [],
-          stateMutability: "payable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address payable",
-              name: "_to",
-              type: "address",
-            },
-          ],
-          name: "transferToFallback",
-          outputs: [],
-          stateMutability: "payable",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    X: {
-      address: "0x3Aa5ebB10DC797CAC828524e59A333d0A371443c",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "string",
-              name: "_name",
-              type: "string",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "constructor",
-        },
-        {
-          inputs: [],
-          name: "name",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
-    Y: {
-      address: "0xc6e7DF5E7b4f2A278906862b61205850344D4e7d",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "string",
-              name: "_text",
-              type: "string",
-            },
-          ],
-          stateMutability: "nonpayable",
-          type: "constructor",
-        },
-        {
-          inputs: [],
-          name: "text",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-    },
     YourContract: {
-      address: "0x3155755b79aA083bd953911C92705B7aA82a18F9",
+      address: "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
       abi: [
         {
           inputs: [],
