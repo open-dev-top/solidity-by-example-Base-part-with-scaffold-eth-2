@@ -28,53 +28,15 @@ contract MyContract {
 	string public greeting = "Just have a try!";
 }
 
-contract Foo {
-	address public owner;
+import "./Foo.sol";
 
-	constructor(address _owner) {
-		require(_owner != address(0), "invalid address");
-		assert(_owner != 0x0000000000000000000000000000000000000001);
-		owner = _owner;
-	}
+import { Unauthorized, add as func, Point } from "./Foo.sol";
 
-	function myFunc(uint256 x) public pure returns (string memory) {
-		require(x != 0, "require failed");
-		return "my func was called";
-	}
-}
+contract Import {
+	Foo public foo = new Foo();
 
-contract Bar {
-	event Log(string message);
-	event LogBytes(bytes data);
-
-	Foo public foo;
-
-	constructor() {
-		foo = new Foo(msg.sender);
-	}
-
-	// tryCatchExternalCall(0) => Log("external call failed")
-	// tryCatchExternalCall(1) => Log("my func was called")
-	function tryCatchExternalCall(uint256 _i) public {
-		try foo.myFunc(_i) returns (string memory result) {
-			emit Log(result);
-		} catch {
-			emit Log("external call failed");
-		}
-	}
-
-	// tryCatchNewContract(0x0000000000000000000000000000000000000000) => Log("invalid address")
-	// tryCatchNewContract(0x0000000000000000000000000000000000000001) => LogBytes("")
-	// tryCatchNewContract(0x0000000000000000000000000000000000000002) => Log("Foo created")
-	function tryCatchNewContract(address _owner) public {
-		try new Foo(_owner) returns (Foo foo) {
-			// you can use variable foo here
-			emit Log("Foo created");
-		} catch Error(string memory reason) {
-			emit Log(reason);
-		} catch (bytes memory reason) {
-			emit LogBytes(reason);
-		}
+	function getFooName() public view returns (string memory) {
+		return foo.name();
 	}
 }
 

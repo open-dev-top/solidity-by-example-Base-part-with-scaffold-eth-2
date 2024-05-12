@@ -45,12 +45,12 @@ const deployMyContract: DeployFunction = async function (hre: HardhatRuntimeEnvi
 
   await deploy("Foo", {
     from: deployer,
-    args: ["0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"],
+    args: [],
     log: true,
     autoMine: true,
   });
 
-  await deploy("Bar", {
+  await deploy("Import", {
     from: deployer,
     args: [],
     log: true,
